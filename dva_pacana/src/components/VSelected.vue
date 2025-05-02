@@ -2,16 +2,23 @@
   <div class="selected">
     <slot></slot>
     <div class="selected__list">
-      <div class="selected__item" v-for="item in items" :key="item.id">
-        {{ item.name }}
-      </div>
+      <v-selected-item
+        class="selected__item"
+        v-for="item in items"
+        :key="item.id"
+        :item="item"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import VSelectedItem from "./VSelectedItem.vue";
 export default {
   name: "VSelected",
+  components: {
+    VSelectedItem,
+  },
   props: {
     items: Array,
   },
